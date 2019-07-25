@@ -1,0 +1,21 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    group: rmc-contaspagar
+    name: rmc-contaspagar-core-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rmcdb
+    username: rmcdbuser
+    password: teste123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+server:
+  port: 8081
+
