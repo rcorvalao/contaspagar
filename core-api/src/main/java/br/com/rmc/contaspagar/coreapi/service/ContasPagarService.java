@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -82,12 +83,12 @@ public class ContasPagarService {
 
     public BigDecimal calcularValorCorrigido(BigDecimal valorOriginal
             , BigDecimal multa, BigDecimal jurosDia, Long diasAtraso) {
-        BigDecimal juros = jurosDia.multiply(new BigDecimal(diasAtraso));
+        BigDecimal juros = (jurosDia.multiply(new BigDecimal(diasAtraso))).setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal jurosTotais = valorOriginal.multiply(juros).divide(new BigDecimal(100));
-        BigDecimal multaTotais = valorOriginal.multiply(multa).divide(new BigDecimal(100));
+        BigDecimal jurosTotais = (valorOriginal.multiply(juros).divide(new BigDecimal(100))).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal multaTotais = (valorOriginal.multiply(multa).divide(new BigDecimal(100))).setScale(2, RoundingMode.HALF_UP);
 
-        return valorOriginal.add(multaTotais).add(jurosTotais);
+        return (valorOriginal.add(multaTotais).add(jurosTotais)).setScale(2, RoundingMode.HALF_UP);
     }
 
 }

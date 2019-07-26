@@ -1,0 +1,52 @@
+<ngb-accordion #acc="ngbAccordion" activeIds="static-1">
+  <ngb-panel id="static-1">
+    <ng-template ngbPanelHeader>
+        <div class="d-flex align-items-center justify-content-between">
+          <h5 class="m-0">Cadastrar Conta a pagar</h5>
+         
+        </div>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <form [formGroup]="conataPagarForm">
+        
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-9">
+            <p class="lead">Dados da conta:</p>
+          </div>
+
+          <div class="col-sm-6 col-xs-12">
+              <input class="form-control" formControlName="nome" placeholder="Nome" autocomplete="off" >
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+              <input type="text" class="form-control" formControlName="valorOriginal" placeholder="valorOriginal" autocomplete="off">
+          </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3 col-xs-6">
+                <input type="text" class="form-control" formControlName="dataVencimento" placeholder="dataVencimento" autocomplete="off">
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <input type="text" class="form-control" formControlName="dataPagamento" placeholder="dataPagamento" autocomplete="off">
+            </div>
+
+          </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <button (click)="criarContaPagar(conataPagarForm.value)" 
+                class="btn btn-sm btn-outline-primary ml-2">
+                <i class="fa fa-credit-card"></i>Cadastrar Conta
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+     
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion> 

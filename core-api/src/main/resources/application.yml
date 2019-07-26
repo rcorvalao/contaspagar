@@ -18,4 +18,5 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
 server:
   port: 8081
-
+cors:
+  urls: http://localhost:4200

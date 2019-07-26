@@ -1,0 +1,38 @@
+<app-conta-list-filtro></app-conta-list-filtro>
+
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Id.</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Valor Original</th>
+      <th scope="col">Valor Corrigido</th>
+      <th scope="col">Dias em atraso</th>
+      <th scope="col">Data Pagamento</th>
+      <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let conta of contasPagar; index as i">
+      <th scope="row">{{ conta.id }}</th>
+      <td>{{ conta.nome }}</td>
+      <td>{{ conta.valorOriginal }}</td>
+      <td>{{ conta.valorCorrigido }}</td>
+      <td>{{ conta.quantidadeDiasAtraso }}</td>
+      <td>{{ conta.dataPagamento }}</td>
+      <td>
+          <a id="lk-excluir"
+          (click)="editarConta(conta)">
+          E
+        </a>
+        <a id="lk-excluir"
+          (click)="removerConta(conta)">
+          R
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  
